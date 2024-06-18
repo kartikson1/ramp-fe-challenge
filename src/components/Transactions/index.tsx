@@ -17,20 +17,20 @@ export const Transactions: TransactionsComponent = ({ transactions }) => {
     [fetchWithoutCache]
   )
 
-  if (transactions === null) {
-    return <div className="RampLoading--container">Loading...</div>
-  }
-
   return (
     <div data-testid="transaction-container">
-      {transactions.map((transaction) => (
-        <TransactionPane
-          key={transaction.id}
-          transaction={transaction}
-          loading={loading}
-          setTransactionApproval={setTransactionApproval}
-        />
-      ))}
+      {transactions === null ? (
+        <div className="RampLoading--container">Loading...</div>
+      ) : (
+        transactions.map((transaction) => (
+          <TransactionPane
+            key={transaction.id}
+            transaction={transaction}
+            loading={loading}
+            setTransactionApproval={setTransactionApproval}
+          />
+        ))
+      )}
     </div>
   )
 }

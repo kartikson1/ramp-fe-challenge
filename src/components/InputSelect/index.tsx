@@ -63,7 +63,7 @@ export function InputSelect<TItem>({
                 toggleProps.onClick(event)
               }}
             >
-              {inputValue}
+              {parsedSelectedItem?.label ?? "Select an item..."}
             </div>
 
             <div
